@@ -32,13 +32,28 @@ p.text-sm.font-medium.opacity-50 {
 }
 
 /***************************************
- * 1.5 减小时间区域顶部间距
+ * 1.5 减小时间区域顶部间距（可配置）
+ * 
+ * 默认不启用。若需启用，在 :root 中添加：
+ *   --reduce-timer-margin: 1;
+ * 
+ * 也可自定义 padding 值：
+ *   --timer-padding-top: 0.5rem;
  ***************************************/
+:root {
+    --reduce-timer-margin: 0;
+    /* 0 = 关闭, 1 = 启用 */
+    --timer-padding-top: 1rem;
+    /* 启用后的顶部 padding */
+}
+
 .header-timer,
 section.mt-10,
 section.md\:mt-16 {
-    margin-top: 0 !important;
-    padding-top: 1rem !important;
+    /* 当 --reduce-timer-margin 为 1 时，margin-top 变为 0 */
+    margin-top: calc((1 - var(--reduce-timer-margin)) * 2.5rem) !important;
+    /* 当 --reduce-timer-margin 为 1 时，使用自定义 padding */
+    padding-top: calc(var(--reduce-timer-margin) * var(--timer-padding-top)) !important;
 }
 
 /***************************************
