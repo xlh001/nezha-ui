@@ -32,6 +32,16 @@ p.text-sm.font-medium.opacity-50 {
 }
 
 /***************************************
+ * 1.5 减小时间区域顶部间距
+ ***************************************/
+.header-timer,
+section.mt-10,
+section.md\:mt-16 {
+    margin-top: 0 !important;
+    padding-top: 1rem !important;
+}
+
+/***************************************
  * 2. 时间数字（低发光、清晰）
  ***************************************/
 [data-issues-count-animation] {
